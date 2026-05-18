@@ -25,6 +25,15 @@ jobs:
       - name: Build Next.js
         run: npm run build
         
+      - name: Debug - List files
+        run: |
+          echo "=== Root directory ==="
+          ls -la
+          echo "=== .next directory ==="
+          ls -la .next/ || echo ".next not found"
+          echo "=== out directory ==="
+          ls -la out/ || echo "out not found"
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
